@@ -3,28 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <meta name="description" content="Personalized gEnerative Tamagotchi (PET): personalized technology to support self-directed goals and behavior intervention.">
+    <title>Personalized gEnerative Tamagotchi (PET)</title>
 
     <style>
+        :root {
+            --background: #f7f8ff;
+            --surface: #ffffff;
+            --primary: #6657d9;
+            --primary-dark: #4438a7;
+            --accent: #35b6a4;
+            --text: #25243a;
+            --muted: #66647a;
+            --border: #e4e2f2;
+            --shadow: 0 12px 30px rgba(57, 48, 130, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 14px 7%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary);
+        }
+
+        header {
+            min-height: 78vh;
+            display: grid;
+            place-items: center;
+            padding: 90px 7%;
+            color: white;
             text-align: center;
-            background-color: #f2f7ff;
-            padding: 50px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(53, 182, 164, 0.65), transparent 28%),
+                linear-gradient(135deg, #392d91, #796ce4);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
         }
 
         h1 {
-            color: #2563eb;
+            margin: 0 0 20px;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.05;
         }
 
-        p {
-            color: #444;
+        .subtitle {
+            max-width: 760px;
+            margin: 0 auto 32px;
+            font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 999px;
+            color: var(--primary-dark);
+            background: white;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+
+        .button:hover,
+        .button:focus {
+            transform: translateY(-2px);
+        }
+
+        main {
+            width: min(1100px, 86%);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            margin: 0 0 14px;
+            color: var(--primary-dark);
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .section-intro {
+            max-width: 760px;
+            margin: 0 0 34px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            padding: 26px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-dark);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            color: #176c61;
+            background: #dff7f3;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .publication {
+            margin-bottom: 18px;
+            padding: 22px;
+            background: var(--surface);
+            border-left: 5px solid var(--accent);
+            border-radius: 8px 16px 16px 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .publication h3 {
+            margin: 0 0 8px;
+        }
+
+        .publication p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .note-box {
+            padding: 30px;
+            background: #ece9ff;
+            border-radius: 18px;
+        }
+
+        .collaborator {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 82px;
+            height: 82px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        footer {
+            padding: 38px 7%;
+            color: white;
+            text-align: center;
+            background: #292358;
+        }
+
+        footer a {
+            color: #b9fff5;
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 10px 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 62px 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is my first website on GitHub.</p>
+    <nav aria-label="Main navigation">
+        <a class="logo" href="#home">PET</a>
+        <ul class="nav-links">
+            <li><a href="#research-problems">Research Problems</a></li>
+            <li><a href="#research-issues">Research Issues</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#note">Note</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#collaborators">Collaborators</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-content">
+            <p class="eyebrow">An AI companion for personal growth</p>
+            <h1>Personalized gEnerative Tamagotchi</h1>
+            <p class="subtitle">
+                Personalized technology to support self-directed goals &amp;
+                behavior intervention.
+            </p>
+            <!-- Replace YOUR-USERNAME with your real GitHub username. -->
+            <a class="button" href="https://github.com/YOUR-USERNAME/PET" target="_blank" rel="noopener">
+                View PET on GitHub
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="research-problems">
+            <h2>Research Problems</h2>
+            <p class="section-intro">
+                PET studies how an AI pet can help people set meaningful goals,
+                stay motivated, and turn intentions into sustainable actions.
+            </p>
+            <div class="grid">
+                <article class="card">
+                    <span class="tag">Problem 01</span>
+                    <h3>Maintaining Motivation</h3>
+                    <p>How can a virtual companion help a person remain engaged with a long-term goal?</p>
+                </article>
+                <article class="card">
+                    <span class="tag">Problem 02</span>
+                    <h3>Meaningful Personalization</h3>
+                    <p>How should PET adapt its personality, feedback, and support to each person?</p>
+                </article>
+                <article class="card">
+                    <span class="tag">Problem 03</span>
+                    <h3>From Goals to Action</h3>
+                    <p>How can PET help translate a broad goal into practical, achievable daily steps?</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="research-issues">
+            <h2>Research Issues</h2>
+            <p class="section-intro">
+                Building a persuasive AI companion also creates important
+                technical, ethical, and social questions.
+            </p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Privacy &amp; Data</h3>
+                    <p>PET may learn from sensitive personal information, so users need transparency and control.</p>
+                </article>
+                <article class="card">
+                    <h3>Trust &amp; Safety</h3>
+                    <p>Advice must be responsible, understandable, and appropriate to PET's role and limitations.</p>
+                </article>
+                <article class="card">
+                    <h3>Evaluation</h3>
+                    <p>We need reliable ways to measure engagement, behavior change, well-being, and long-term effects.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <p class="section-intro">Research papers, posters, demonstrations, and project reports related to PET.</p>
+
+            <article class="publication">
+                <h3>Publication Title</h3>
+                <p>Author Name, Author Name · Conference or Journal · Year · <a href="#">Paper link</a></p>
+            </article>
+            <article class="publication">
+                <h3>Poster or Demonstration Title</h3>
+                <p>Author Name, Author Name · Event Name · Year · <a href="#">Project link</a></p>
+            </article>
+        </section>
+
+        <section id="note">
+            <h2>Note</h2>
+            <div class="note-box">
+                <h3>Project updates</h3>
+                <p>
+                    Use this section for announcements, study recruitment,
+                    development updates, acknowledgements, or an important note
+                    for visitors. Replace this example text with your content.
+                </p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p class="section-intro">
+                Personalized gEnerative Tamagotchi (PET) is an AI pet designed
+                to support people as they pursue self-directed goals. PET explores
+                how personalization, companionship, and generative AI can make
+                behavior interventions more engaging and supportive.
+            </p>
+            <p>
+                This website documents the motivation, research questions,
+                development process, and outcomes of the project.
+            </p>
+        </section>
+
+        <section id="collaborators">
+            <h2>Collaborators</h2>
+            <p class="section-intro">Meet the researchers, designers, developers, and organizations behind PET.</p>
+            <div class="grid">
+                <article class="card collaborator">
+                    <div class="avatar" aria-hidden="true">TC</div>
+                    <h3>Your Name</h3>
+                    <p>Role or research area<br><a href="mailto:name@example.com">name@example.com</a></p>
+                </article>
+                <article class="card collaborator">
+                    <div class="avatar" aria-hidden="true">AB</div>
+                    <h3>Collaborator Name</h3>
+                    <p>Role or research area<br><a href="#">Personal website</a></p>
+                </article>
+                <article class="card collaborator">
+                    <div class="avatar" aria-hidden="true">LAB</div>
+                    <h3>Lab or Organization</h3>
+                    <p>Department or institution<br><a href="#">Organization website</a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Personalized gEnerative Tamagotchi (PET)</p>
+        <p><a href="https://github.com/YOUR-USERNAME/PET">GitHub repository</a></p>
+    </footer>
 </body>
 </html>
