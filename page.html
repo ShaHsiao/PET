@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personalized gEnerative Tamagotchi (PET): personalized technology to support self-directed goals and behavior intervention.">
     <title>Personalized gEnerative Tamagotchi (PET)</title>
+    <!-- Browser-tab icon (favicon). Keep PET_logo.png beside index.html. -->
+    <link rel="icon" type="image/png" href="PET_logo.png">
+    <link rel="apple-touch-icon" href="PET_logo.png">
 
     <style>
         :root {
@@ -50,10 +53,21 @@
         }
 
         .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             color: var(--primary-dark);
             font-size: 1.35rem;
             font-weight: 800;
             text-decoration: none;
+        }
+
+        .logo-image {
+            width: 42px;
+            height: 42px;
+            display: block;
+            object-fit: cover;
+            border-radius: 11px;
         }
 
         .nav-links {
@@ -327,7 +341,11 @@
 
 <body>
     <nav aria-label="Main navigation">
-        <a class="logo" href="#home">PET</a>
+        <!-- Top-left PET logo and name. -->
+        <a class="logo" href="#home" aria-label="PET home">
+            <img class="logo-image" src="PET_logo.png" alt="">
+            <span>PET</span>
+        </a>
         <ul class="nav-links">
             <li><a href="#research-problems">Research Problems</a></li>
             <li><a href="#research-issues">Research Issues</a></li>
