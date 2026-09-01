@@ -280,6 +280,27 @@
             text-align: center;
         }
 
+        .people-group {
+            margin-top: 48px;
+        }
+
+        .people-heading {
+            margin: 0 0 20px;
+            color: var(--text);
+            font-size: 1.55rem;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .collaborator p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
         .avatar {
             width: 82px;
             height: 82px;
@@ -352,7 +373,6 @@
             <li><a href="#publications">Publications</a></li>
             <li><a href="#note">Note</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#collaborators">Collaborators</a></li>
         </ul>
     </nav>
 
@@ -467,27 +487,44 @@
                 This website documents the motivation, research questions,
                 development process, and outcomes of the project.
             </p>
-        </section>
 
-        <section id="collaborators">
-            <h2>Collaborators</h2>
-            <p class="section-intro">Meet the researchers, designers, developers, and organizations behind PET.</p>
-            <div class="grid">
-                <article class="card collaborator">
-                    <div class="avatar" aria-hidden="true">TC</div>
-                    <h3>Your Name</h3>
-                    <p>Role or research area<br><a href="mailto:name@example.com">name@example.com</a></p>
-                </article>
-                <article class="card collaborator">
-                    <div class="avatar" aria-hidden="true">AB</div>
-                    <h3>Collaborator Name</h3>
-                    <p>Role or research area<br><a href="#">Personal website</a></p>
-                </article>
-                <article class="card collaborator">
-                    <div class="avatar" aria-hidden="true">LAB</div>
-                    <h3>Lab or Organization</h3>
-                    <p>Department or institution<br><a href="#">Organization website</a></p>
-                </article>
+            <!-- Team members: edit each name and description inside its card. -->
+            <div class="people-group">
+                <h3 class="people-heading">Team</h3>
+                <div class="people-grid">
+                    <article class="card collaborator">
+                        <div class="avatar" aria-hidden="true">QS</div>
+                        <h3>Qiming Sun</h3>
+                        <p>Lead Developer &amp; Researcher<br>PhD Candidate · Currently on the job market</p>
+                    </article>
+                    <article class="card collaborator">
+                        <div class="avatar" aria-hidden="true">TC</div>
+                        <h3>Toby Chen</h3>
+                        <p>Undergraduate Research Assistant</p>
+                    </article>
+                    <article class="card collaborator">
+                        <div class="avatar" aria-hidden="true">SH</div>
+                        <h3>Sharon Hsiao</h3>
+                        <p>Principal Investigator<br>Associate Professor</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Collaborators: edit each name and affiliation inside its card. -->
+            <div class="people-group" id="collaborators">
+                <h3 class="people-heading">Collaborators</h3>
+                <div class="people-grid">
+                    <article class="card collaborator">
+                        <div class="avatar" aria-hidden="true">SC</div>
+                        <h3>Shih-Yi Chien</h3>
+                        <p>Collaborator<br>National Chengchi University (NCCU)</p>
+                    </article>
+                    <article class="card collaborator">
+                        <div class="avatar" aria-hidden="true">CC</div>
+                        <h3>Christina Chung</h3>
+                        <p>Collaborator<br>University of California, Santa Cruz (UCSC)</p>
+                    </article>
+                </div>
             </div>
         </section>
     </main>
