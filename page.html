@@ -228,6 +228,10 @@
             gap: 22px;
         }
 
+        .issues-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         .card {
             padding: 26px;
             background: var(--surface);
@@ -339,6 +343,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .issues-grid {
+                grid-template-columns: 1fr;
+            }
+
             header {
                 padding: 70px 7%;
                 gap: 62px;
@@ -430,21 +438,29 @@
         <section id="research-issues">
             <h2>Research Issues</h2>
             <p class="section-intro">
-                Building a persuasive AI companion also creates important
-                technical, ethical, and social questions.
+                PET investigates how a personalized AI companion affects goal
+                pursuit, daily engagement, and users' relationships with their pets.
             </p>
-            <div class="grid">
+            <div class="grid issues-grid">
                 <article class="card">
-                    <h3>Privacy &amp; Data</h3>
-                    <p>PET may learn from sensitive personal information, so users need transparency and control.</p>
+                    <span class="tag">Issue 01</span>
+                    <h3>Goal-Pursuit Outcomes</h3>
+                    <p>What are the effects of a personalized virtual pet, combined with an AI-supported goal-planning system, on self-directed goal pursuit?</p>
                 </article>
                 <article class="card">
-                    <h3>Trust &amp; Safety</h3>
-                    <p>Advice must be responsible, understandable, and appropriate to PET's role and limitations.</p>
+                    <span class="tag">Issue 02</span>
+                    <h3>Companion Experience</h3>
+                    <p>What are participants’ experiences with the pet as an AI-generated personal companion during goal support?</p>
                 </article>
                 <article class="card">
-                    <h3>Evaluation</h3>
-                    <p>We need reliable ways to measure engagement, behavior change, well-being, and long-term effects.</p>
+                    <span class="tag">Issue 03</span>
+                    <h3>Sustained Daily Engagement</h3>
+                    <p>How does PET’s care-loop mechanic sustain daily engagement beyond initial conversational novelty?</p>
+                </article>
+                <article class="card">
+                    <span class="tag">Issue 04</span>
+                    <h3>Identification, Ownership &amp; Attachment</h3>
+                    <p>How does generative personalization shape users’ identification with, ownership of, and attachment to their companion?</p>
                 </article>
             </div>
         </section>
