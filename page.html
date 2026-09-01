@@ -77,55 +77,106 @@
             color: var(--primary);
         }
 
+        /* HERO SECTION: Change this area to edit the homepage design. */
         header {
-            min-height: 78vh;
+            min-height: 82vh;
             display: grid;
-            place-items: center;
-            padding: 90px 7%;
-            color: white;
-            text-align: center;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(53, 182, 164, 0.65), transparent 28%),
-                linear-gradient(135deg, #392d91, #796ce4);
+            grid-template-columns: minmax(420px, 0.9fr) minmax(500px, 1.1fr);
+            align-items: center;
+            gap: clamp(38px, 6vw, 90px);
+            padding: 85px 5%;
+            overflow: hidden;
+            color: #111111;
+            background-color: #f7f6f2;
+            background-image: radial-gradient(#c7c7c7 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
         }
 
         .hero-content {
-            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
         }
 
         .eyebrow {
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 0.13em;
+            display: inline-block;
+            margin: 0 0 20px;
+            padding: 7px 13px;
+            color: white;
+            background: #111111;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
         h1 {
             margin: 0 0 20px;
-            font-size: clamp(2.5rem, 7vw, 5.5rem);
-            line-height: 1.05;
+            font-size: clamp(2.15rem, 4.1vw, 4.45rem);
+            font-weight: 900;
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+            white-space: nowrap;
+        }
+
+        h1 .pet-word {
+            color: #ff2f68;
         }
 
         .subtitle {
-            max-width: 760px;
-            margin: 0 auto 32px;
-            font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+            max-width: 650px;
+            margin: 0 0 32px;
+            color: #414141;
+            font-size: clamp(1.05rem, 1.5vw, 1.3rem);
         }
 
         .button {
             display: inline-block;
-            padding: 12px 22px;
-            border-radius: 999px;
-            color: var(--primary-dark);
-            background: white;
-            font-weight: 700;
+            padding: 14px 24px;
+            border: 3px solid #111111;
+            border-radius: 0;
+            color: #111111;
+            background: #c6ff00;
+            font-weight: 800;
             text-decoration: none;
-            box-shadow: var(--shadow);
+            box-shadow: 7px 7px 0 #111111;
+            transition: transform 160ms ease, box-shadow 160ms ease;
         }
 
         .button:hover,
         .button:focus {
-            transform: translateY(-2px);
+            transform: translate(3px, 3px);
+            box-shadow: 4px 4px 0 #111111;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-visual::before {
+            content: "PET ROSTER";
+            position: absolute;
+            top: -20px;
+            right: -18px;
+            z-index: 2;
+            padding: 8px 14px;
+            color: #111111;
+            background: #c6ff00;
+            border: 3px solid #111111;
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            transform: rotate(2deg);
+        }
+
+        .hero-image {
+            display: block;
+            width: 100%;
+            border: 4px solid #111111;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 14px 14px 0 #111111;
         }
 
         main {
@@ -248,6 +299,19 @@
                 grid-template-columns: 1fr;
             }
 
+            header {
+                grid-template-columns: 1fr;
+                padding: 70px 7%;
+            }
+
+            h1 {
+                white-space: normal;
+            }
+
+            .hero-visual {
+                margin-right: 12px;
+            }
+
             section {
                 padding: 62px 0;
             }
@@ -271,7 +335,8 @@
     <header id="home">
         <div class="hero-content">
             <p class="eyebrow">An AI companion for personal growth</p>
-            <h1>Personalized gEnerative Tamagotchi</h1>
+            <!-- Change the title text inside this h1 element. -->
+            <h1>Personalized <span class="pet-word">gEnerative</span> Tamagotchi</h1>
             <p class="subtitle">
                 Personalized technology to support self-directed goals &amp;
                 behavior intervention.
@@ -280,6 +345,15 @@
             <a class="button" href="https://github.com/YOUR-USERNAME/PET" target="_blank" rel="noopener">
                 View PET on GitHub
             </a>
+        </div>
+
+        <!-- Upload dashboard.png into the same GitHub folder as index.html. -->
+        <div class="hero-visual">
+            <img
+                class="hero-image"
+                src="dashboard.png"
+                alt="PET Roster dashboard showing four personalized AI pets supporting different goals"
+            >
         </div>
     </header>
 
