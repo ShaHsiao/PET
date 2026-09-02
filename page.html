@@ -314,6 +314,18 @@
             color: var(--muted);
         }
 
+        .institution-strip {
+            padding: 36px 7%;
+            background: #ffffff;
+            border-top: 1px solid var(--border);
+        }
+
+        .institution-logo {
+            display: block;
+            width: min(345px, 80vw);
+            height: auto;
+        }
+
         .avatar {
             width: 82px;
             height: 82px;
@@ -565,6 +577,15 @@
             </div>
         </section>
     </main>
+
+    <!-- Bottom institutional logo. Keep SCU_engineering.png beside index.html. -->
+    <div class="institution-strip">
+        <img
+            class="institution-logo"
+            src="SCU_engineering.png"
+            alt="Santa Clara Engineering"
+        >
+    </div>
 
     <footer>
         <p>&copy; 2026 Personalized gEnerative Tamagotchi (PET)</p>
