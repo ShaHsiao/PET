@@ -96,12 +96,11 @@
 
         /* HERO SECTION: Change this area to edit the homepage design. */
         header {
-            min-height: 82vh;
             display: grid;
             grid-template-columns: 1fr;
             align-items: center;
-            gap: 90px;
-            padding: 70px 5% 90px;
+            gap: 32px;
+            padding: 36px 5% 40px;
             overflow: hidden;
             color: #111111;
             text-align: center;
@@ -146,7 +145,7 @@
 
         .subtitle {
             max-width: 650px;
-            margin: 0 auto 32px;
+            margin: 0 auto;
             color: #414141;
             font-size: clamp(1.05rem, 1.5vw, 1.3rem);
         }
@@ -172,8 +171,8 @@
 
         .hero-visual {
             position: relative;
-            width: min(1180px, 94%);
-            margin: 25px auto 0;
+            width: min(760px, 94%);
+            margin: 0 auto;
         }
 
         .hero-visual::before {
@@ -195,10 +194,19 @@
         .hero-image {
             display: block;
             width: 100%;
+            height: auto;
             border: 4px solid #111111;
             border-radius: 8px;
             background: white;
-            box-shadow: 14px 14px 0 #111111;
+            box-shadow: 8px 8px 0 #111111;
+        }
+
+        .hero-visual figcaption {
+            margin: 18px auto 0;
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         main {
@@ -403,6 +411,22 @@
             border-radius: 0 0 4px 4px;
         }
 
+        .conversation-figure {
+            width: min(640px, 100%);
+            margin: 32px auto 0;
+        }
+
+        .figure-description {
+            display: block;
+            margin-top: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-transform: none;
+        }
+
         .architecture-figure figcaption { background: #ffc3d3; }
         .card p:last-child { margin-bottom: 0; }
         .note-box h3 { margin-top: 0; }
@@ -432,8 +456,8 @@
             }
 
             header {
-                padding: 70px 7%;
-                gap: 62px;
+                padding: 30px 7% 36px;
+                gap: 30px;
             }
 
             h1 {
@@ -441,8 +465,8 @@
             }
 
             .hero-visual {
-                width: calc(100% - 12px);
-                margin: 15px 12px 0 0;
+                width: min(760px, calc(100% - 12px));
+                margin: 0 auto;
             }
 
             section {
@@ -457,7 +481,7 @@
     <nav aria-label="Main navigation">
         <!-- Top-left PET logo and name. -->
         <a class="logo" href="#home" aria-label="PET home">
-            <img class="logo-image" src="PET_logo.png" alt="">
+            <img class="logo-image" src="PET_logo.png" alt="PET project logo">
             <span>PET</span>
         </a>
         <ul class="nav-links">
@@ -481,13 +505,14 @@
         </div>
 
         <!-- Upload dashboard.png into the same GitHub folder as index.html. -->
-        <div class="hero-visual">
+        <figure class="hero-visual">
             <img
                 class="hero-image"
                 src="dashboard.png"
-                alt="PET Roster dashboard showing four personalized AI pets supporting different goals"
+                alt="PET roster with four personalized companion cards, each showing a pet, its goal, level, health, and experience."
             >
-        </div>
+            <figcaption>Each PET represents a personal goal, with its own appearance and progress indicators.</figcaption>
+        </figure>
     </header>
 
     <main>
@@ -515,8 +540,8 @@
                 </article>
             </div>
             <!-- Keep chat.png beside index.html. -->
-            <figure class="section-figure">
-                <figcaption>PET in conversation</figcaption>
+            <figure class="section-figure conversation-figure">
+                <figcaption>PET in conversation<span class="figure-description">A conversation with LEAV connects everyday sustainable choices with companion responses and progress tracking.</span></figcaption>
                 <img src="chat.png" loading="lazy" alt="PET chat interface showing LEAV, a personalized companion, responding to a user's sustainable-living actions alongside pet health, experience, and activity tracking.">
             </figure>
         </section>
@@ -566,7 +591,7 @@
             </article>
             <!-- Keep architecture.png beside index.html. -->
             <figure class="section-figure architecture-figure">
-                <figcaption>PET system architecture</figcaption>
+                <figcaption>PET system architecture<span class="figure-description">User goals and visual preferences guide companion generation; the CareTaker agent supports interaction, tracking, and conversation.</span></figcaption>
                 <img src="architecture.png" loading="lazy" alt="PET architecture: user goals and art-style choices feed Profiler, Strategist, and Designer generation agents; the CareTaker agent supports pet interaction, goal tracking, and chat and logging.">
             </figure>
         </section>
