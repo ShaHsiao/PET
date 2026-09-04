@@ -11,15 +11,16 @@
 
     <style>
         :root {
-            --background: #f7f8ff;
+            --background: #f7f6f2;
             --surface: #ffffff;
-            --primary: #6657d9;
-            --primary-dark: #4438a7;
-            --accent: #35b6a4;
-            --text: #25243a;
-            --muted: #66647a;
-            --border: #e4e2f2;
-            --shadow: 0 12px 30px rgba(57, 48, 130, 0.10);
+            --primary: #bc1744;
+            --primary-dark: #111111;
+            --accent: #c6ff00;
+            --pink: #ff2f68;
+            --text: #111111;
+            --muted: #414141;
+            --border: #111111;
+            --shadow: 6px 6px 0 #111111;
         }
 
         * {
@@ -32,6 +33,8 @@
             font-family: Arial, Helvetica, sans-serif;
             color: var(--text);
             background: var(--background);
+            background-image: radial-gradient(#d3d1cc 1px, transparent 1px);
+            background-size: 28px 28px;
             line-height: 1.7;
         }
 
@@ -49,7 +52,7 @@
             gap: 24px;
             padding: 14px 7%;
             background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 3px solid var(--border);
         }
 
         .logo {
@@ -206,26 +209,33 @@
         section {
             padding: 85px 0;
             scroll-margin-top: 75px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 3px solid var(--border);
         }
 
         h2 {
             margin: 0 0 14px;
             color: var(--primary-dark);
             font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            text-decoration: underline;
+            text-decoration-color: var(--pink);
+            text-decoration-thickness: 6px;
+            text-underline-offset: 10px;
         }
 
         .section-intro {
             max-width: 760px;
-            margin: 0 0 34px;
+            margin: 24px 0 34px;
             color: var(--muted);
             font-size: 1.08rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 26px;
         }
 
         .issues-grid {
@@ -235,8 +245,8 @@
         .card {
             padding: 26px;
             background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 18px;
+            border: 3px solid var(--border);
+            border-radius: 8px;
             box-shadow: var(--shadow);
         }
 
@@ -249,19 +259,22 @@
             display: inline-block;
             margin-bottom: 12px;
             padding: 4px 10px;
-            border-radius: 999px;
-            color: #176c61;
-            background: #dff7f3;
-            font-size: 0.78rem;
-            font-weight: 700;
+            border: 2px solid var(--border);
+            border-radius: 0;
+            color: var(--text);
+            background: var(--accent);
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+            font-weight: 800;
         }
 
         .publication {
-            margin-bottom: 18px;
-            padding: 22px;
+            margin-bottom: 26px;
+            padding: 26px;
             background: var(--surface);
-            border-left: 5px solid var(--accent);
-            border-radius: 8px 16px 16px 8px;
+            border: 3px solid var(--border);
+            border-left: 10px solid var(--pink);
+            border-radius: 8px;
             box-shadow: var(--shadow);
         }
 
@@ -276,8 +289,10 @@
 
         .note-box {
             padding: 30px;
-            background: #ece9ff;
-            border-radius: 18px;
+            background: #edffad;
+            border: 3px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
         }
 
         .feature-list {
@@ -301,6 +316,10 @@
             margin: 0 0 20px;
             color: var(--text);
             font-size: 1.55rem;
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--accent);
+            border: 2px solid var(--border);
         }
 
         .people-grid {
@@ -333,8 +352,10 @@
             place-items: center;
             margin: 0 auto 14px;
             border-radius: 50%;
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text);
+            background: var(--accent);
+            border: 3px solid var(--border);
+            box-shadow: 4px 4px 0 var(--border);
             font-size: 1.4rem;
             font-weight: 800;
         }
@@ -343,11 +364,53 @@
             padding: 38px 7%;
             color: white;
             text-align: center;
-            background: #292358;
+            background: #111111;
         }
 
         footer a {
-            color: #b9fff5;
+            color: var(--accent);
+        }
+
+        .card:nth-child(2n) .tag,
+        .collaborator:nth-child(2n) .avatar {
+            background: #ffc3d3;
+        }
+
+        .section-figure {
+            margin: 42px 0 0;
+            background: white;
+            border: 3px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 8px 8px 0 var(--border);
+        }
+
+        .section-figure figcaption {
+            padding: 12px 18px;
+            border-bottom: 3px solid var(--border);
+            border-radius: 4px 4px 0 0;
+            background: var(--accent);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .section-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .architecture-figure figcaption { background: #ffc3d3; }
+        .card p:last-child { margin-bottom: 0; }
+        .note-box h3 { margin-top: 0; }
+        a:focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto; }
+            .button { transition: none; }
         }
 
         @media (max-width: 800px) {
@@ -384,6 +447,7 @@
 
             section {
                 padding: 62px 0;
+                scroll-margin-top: 175px;
             }
         }
     </style>
@@ -454,6 +518,11 @@
                     <p>How does generating a companion directly from a user's self-described goals shape their emotional attachment, sense of ownership, and companion identity?</p>
                 </article>
             </div>
+            <!-- Keep chat.png beside index.html. -->
+            <figure class="section-figure">
+                <figcaption>PET in conversation</figcaption>
+                <img src="chat.png" loading="lazy" alt="PET chat interface showing LEAV, a personalized companion, responding to a user's sustainable-living actions alongside pet health, experience, and activity tracking.">
+            </figure>
         </section>
 
         <section id="research-issues">
@@ -502,6 +571,11 @@
                 <h3>A Pet for Every Goal: Personalized gEnerative Tamagotchi-Style Companions for Self-Directed Goal Support</h3>
                 <p>Qiming Sun and I-Han Hsiao · Hawaii International Conference on System Sciences (HICSS) · 2027</p>
             </article>
+            <!-- Keep architecture.png beside index.html. -->
+            <figure class="section-figure architecture-figure">
+                <figcaption>PET system architecture</figcaption>
+                <img src="architecture.png" loading="lazy" alt="PET architecture: user goals and art-style choices feed Profiler, Strategist, and Designer generation agents; the CareTaker agent supports pet interaction, goal tracking, and chat and logging.">
+            </figure>
         </section>
 
         <section id="note">
