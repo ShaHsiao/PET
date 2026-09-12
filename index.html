@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personalized gEnerative Tamagotchi (PET): personalized technology to support self-directed goals and behavior development">
     <title>Personalized gEnerative Tamagotchi (PET)</title>
-    <link rel="icon" type="image/png" href="PET_logo.png">
+    <link rel="icon" type="image/png" href="PET_logo-96.png">
     <link rel="apple-touch-icon" href="PET_logo.png">
 
     <style>
@@ -181,7 +181,7 @@
 
         .hero-visual {
             position: relative;
-            width: min(760px, 94%);
+            width: min(663px, 94%);
             margin: 0 auto;
         }
 
@@ -389,6 +389,24 @@
             color: var(--accent);
         }
 
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px 30px;
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        .footer-logo {
+            display: block;
+            width: 140px;
+            height: auto;
+        }
+
         .card:nth-child(2n) .tag,
         .collaborator:nth-child(2n) .avatar {
             background: #ffc3d3;
@@ -475,7 +493,7 @@
             }
 
             .hero-visual {
-                width: min(760px, calc(100% - 12px));
+                width: min(663px, calc(100% - 12px));
                 margin: 0 auto;
             }
 
@@ -490,7 +508,7 @@
 <body>
     <nav aria-label="Main navigation">
         <a class="logo" href="#home" aria-label="PET home">
-            <img class="logo-image" src="PET_logo.png" alt="PET project logo">
+            <img class="logo-image" src="PET_logo-96.png" width="96" height="96" alt="PET project logo">
             <span>PET</span>
         </a>
         <ul class="nav-links">
@@ -512,11 +530,17 @@
         </div>
 
         <figure class="hero-visual">
-            <img
-                class="hero-image"
-                src="dashboard.gif"
-                alt="PET roster with four personalized companion cards, each showing a pet, its goal, level, health, and experience."
-            >
+            <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcset="dashboard-poster.webp" type="image/webp">
+                <source srcset="dashboard.webp" type="image/webp">
+                <img
+                    class="hero-image"
+                    src="dashboard.gif"
+                    width="655"
+                    height="375"
+                    alt="PET roster with four personalized companion cards, each showing a pet, its goal, level, health, and experience."
+                >
+            </picture>
             <figcaption>Each PET represents a personal goal, with its own appearance and progress indicators.</figcaption>
         </figure>
         <div> <a href="https://pet-demo-ht.vercel.app/" target="_blank"><p class="eyebrowd"> Try PET interactive demo </p></a></div>
@@ -689,13 +713,17 @@
     </div>
 -->
     <footer>
-        <p>&copy; 2026 Personalized gEnerative Tamagotchi (PET) 
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="SCU_engineering.png" 
-                style="width: 10%; height: auto;"
-                alt="Santa Clara University School of Engineering">
-        </p>
-         
+        <div class="footer-inner">
+            <p>&copy; 2026 Personalized gEnerative Tamagotchi (PET)</p>
+            <img
+                class="footer-logo"
+                src="SCU_engineering.png"
+                width="329"
+                height="141"
+                loading="lazy"
+                alt="Santa Clara University School of Engineering"
+            >
+        </div>
     </footer>
 </body>
 </html>
