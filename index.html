@@ -46,11 +46,12 @@
             top: 0;
             z-index: 10;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 24px;
             padding: 14px 7%;
-            background: rgba(255, 255, 255, 0.96);
+            background: #ffffff;
             border-bottom: 3px solid var(--border);
         }
 
@@ -72,6 +73,36 @@
             border-radius: 11px;
         }
 
+        .nav-toggle {
+            display: none;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 14px;
+            color: var(--text);
+            background: var(--accent);
+            border: 3px solid var(--border);
+            border-radius: 0;
+            box-shadow: 4px 4px 0 var(--border);
+            font: inherit;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .nav-toggle-bars {
+            display: grid;
+            gap: 3px;
+        }
+
+        .nav-toggle-bars span {
+            display: block;
+            width: 18px;
+            height: 3px;
+            background: var(--border);
+        }
+
         .nav-links {
             display: flex;
             flex-wrap: wrap;
@@ -82,6 +113,8 @@
         }
 
         .nav-links a {
+            display: block;
+            padding: 6px 2px;
             color: var(--text);
             font-size: 0.92rem;
             font-weight: 600;
@@ -226,7 +259,7 @@
 
         section {
             padding: 85px 0;
-            scroll-margin-top: 75px;
+            scroll-margin-top: 90px;
             border-bottom: 3px solid var(--border);
         }
 
@@ -459,6 +492,7 @@
         .card p:last-child { margin-bottom: 0; }
         .note-box h3 { margin-top: 0; }
         a:focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; }
+        .nav-toggle:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 
         @media (prefers-reduced-motion: reduce) {
             * { scroll-behavior: auto; }
@@ -467,12 +501,34 @@
 
         @media (max-width: 800px) {
             nav {
-                align-items: flex-start;
-                flex-direction: column;
+                padding: 12px 7%;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
             }
 
             .nav-links {
-                gap: 10px 16px;
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                order: 3;
+                margin-top: 12px;
+                border-top: 3px solid var(--border);
+            }
+
+            .nav-links.is-open {
+                display: flex;
+            }
+
+            .nav-links li + li {
+                border-top: 2px solid #e4e2dc;
+            }
+
+            .nav-links a {
+                padding: 13px 2px;
+                font-size: 1rem;
             }
 
             .grid {
@@ -499,7 +555,7 @@
 
             section {
                 padding: 62px 0;
-                scroll-margin-top: 175px;
+                scroll-margin-top: 85px;
             }
         }
     </style>
@@ -511,9 +567,14 @@
             <img class="logo-image" src="PET_logo-96.png" width="96" height="96" alt="PET project logo">
             <span>PET</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#research-problems">Research Problems</a></li>
-            <li><a href="#research-issues">Research Issues</a></li>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+            <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+            Menu
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#research-problems">Motivation</a></li>
+            <li><a href="#research-issues">Research Questions</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#note">Notes</a></li>
             <li><a href="#about">About</a></li>            
@@ -725,5 +786,25 @@
             >
         </div>
     </footer>
+
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var links = document.getElementById('nav-links');
+            if (!toggle || !links) { return; }
+
+            toggle.addEventListener('click', function () {
+                var open = links.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(open));
+            });
+
+            links.addEventListener('click', function (event) {
+                if (event.target.closest('a')) {
+                    links.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
