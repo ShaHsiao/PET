@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personalized gEnerative Tamagotchi (PET): personalized technology to support self-directed goals and behavior development">
+    <meta name="theme-color" content="#f7f6f2">
     <title>Personalized gEnerative Tamagotchi (PET)</title>
     <link rel="icon" type="image/png" href="PET_logo-96.png">
     <link rel="apple-touch-icon" href="PET_logo.png">
@@ -22,9 +23,12 @@
             --shadow: 6px 6px 0 #111111;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
@@ -167,7 +171,7 @@
             font-weight: 900;
             line-height: 0.98;
             letter-spacing: -0.055em;
-            white-space: nowrap;
+            text-wrap: balance;
         }
 
         h1 .pet-letter {
@@ -209,22 +213,6 @@
             position: relative;
             width: min(663px, 94%);
             margin: 0 auto;
-        }
-
-        .hero-visual::before {
-            content: "PET ROSTER";
-            position: absolute;
-            top: -20px;
-            right: -18px;
-            z-index: 2;
-            padding: 8px 14px;
-            color: #111111;
-            background: #c6ff00;
-            border: 3px solid #111111;
-            font-size: 0.75rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            transform: rotate(2deg);
         }
 
         .hero-image {
@@ -431,18 +419,6 @@
         .collaborator p {
             margin-bottom: 0;
             color: var(--muted);
-        }
-
-        .institution-strip {
-            padding: 36px 7%;
-            background: #ffffff;
-            border-top: 1px solid var(--border);
-        }
-
-        .institution-logo {
-            display: block;
-            width: min(345px, 80vw);
-            height: auto;
         }
 
         .avatar {
@@ -706,7 +682,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            * { scroll-behavior: auto; }
+            html { scroll-behavior: auto; }
             .button { transition: none; }
         }
 
@@ -753,10 +729,6 @@
             header {
                 padding: 30px 7% 36px;
                 gap: 30px;
-            }
-
-            h1 {
-                white-space: normal;
             }
 
             .hero-visual {
@@ -894,7 +866,7 @@
                 <article class="card">
                     <span class="tag">Problem 03</span>
                     <h3>Companion Attachment and Identification</h3>
-                    <p>How does generating a companion directly from a user's self-described goals shape their emotional attachment, sense of ownership, and companion identity?</p>
+                    <p>How does generating a companion directly from a user&rsquo;s self-described goals shape their emotional attachment, sense of ownership, and companion identity?</p>
                 </article>
             </div>
             <figure class="section-figure conversation-figure">
@@ -909,7 +881,7 @@
             <h2>Research Questions</h2>
             <p class="section-intro">
                 PET investigates how a personalized AI companion affects goal
-                pursuit, daily engagement, and users' relationships with their pets.
+                pursuit, daily engagement, and users&rsquo; relationships with their pets.
             </p>
             <div class="grid issues-grid">
                 <article class="card">
@@ -920,17 +892,17 @@
                 <article class="card">
                     <span class="tag">Issue 02</span>
                     <h3>Companion Experience</h3>
-                    <p>What are participants’ experiences with the pet as an AI-generated personal companion during goal support?</p>
+                    <p>What are participants&rsquo; experiences with the pet as an AI-generated personal companion during goal support?</p>
                 </article>
                 <article class="card">
                     <span class="tag">Issue 03</span>
                     <h3>Sustained Daily Engagement</h3>
-                    <p>How does PET’s care-loop mechanic sustain daily engagement beyond initial conversational novelty?</p>
+                    <p>How does PET&rsquo;s care-loop mechanic sustain daily engagement beyond initial conversational novelty?</p>
                 </article>
                 <article class="card">
                     <span class="tag">Issue 04</span>
                     <h3>Identification, Ownership &amp; Attachment</h3>
-                    <p>How does generative personalization shape users’ identification with, ownership of, and attachment to their companion?</p>
+                    <p>How does generative personalization shape users&rsquo; identification with, ownership of, and attachment to their companion?</p>
                 </article>
             </div>
         </section>
@@ -974,7 +946,7 @@
                     <li>
                         <strong>Expanded social interaction:</strong>
                         Introduce shared spaces, such as a virtual park, where users can
-                        “walk” their PETs, discover goals, meet other users, and showcase their personalized companions.
+                        &ldquo;walk&rdquo; their PETs, discover goals, meet other users, and showcase their personalized companions.
                     </li>
                     <li>
                         <strong>Post-goal companion lifecycle:</strong>
@@ -983,8 +955,8 @@
                         into a ghost-like form inspired by Obaketchi.
                     </li>
                     <li>
-                        <strong>Immersive PET: </strong>
-                        Imagine your AI companion is not just a companion, but also your travel guide, your workout buddy and so much more...so they go whereever you go in the immersive setting. 
+                        <strong>Immersive PET:</strong>
+                        Imagine your AI companion is not just a companion, but also your travel guide, your workout buddy and so much more&hellip;so they go wherever you go in the immersive setting.
                     </li>
                 </ol>
             </div>
@@ -993,7 +965,7 @@
         <section id="about">
             <h2>About</h2>
             <p class="section-intro">
-                Personalized gEnerative Tamagotchi (PET) project builds novel multi-agentic AI architecture to create personalized 
+                Personalized gEnerative Tamagotchi (PET) project builds novel multi-agentic AI architecture to create personalized
                 AI pets designed to support users to pursue any of their self-directed goals. PET explores
                 how personalization, companionship, and generative AI can make
                 behavior interventions more engaging and supportive.
@@ -1009,7 +981,7 @@
                     <article class="card collaborator">
                         <div class="avatar" aria-hidden="true">QS</div>
                         <h3>Qiming Sun</h3>
-                        <p>Lead Developer &amp; Researcher<br>PhD Candidate <br>Santa Clara University<br> Currently on the job market</p>
+                        <p>Lead Developer &amp; Researcher<br>PhD Candidate<br>Santa Clara University<br>Currently on the job market</p>
                     </article>
                     <article class="card collaborator">
                         <div class="avatar" aria-hidden="true">TC</div>
@@ -1018,7 +990,7 @@
                     </article>
                     <article class="card collaborator">
                         <div class="avatar" aria-hidden="true">SH</div>
-                        <h3><a href="https://shahsiao.github.io/mysite/" target="_blank">Dr. Sharon Hsiao</a></h3>
+                        <h3><a href="https://shahsiao.github.io/mysite/" target="_blank" rel="noopener noreferrer">Dr. Sharon Hsiao</a></h3>
                         <p>Principal Investigator<br>Associate Professor<br>Santa Clara University</p>
                         <p>ihsiao (at) scu (dot) edu</p>
                     </article>
@@ -1043,16 +1015,6 @@
         </section>
     </main>
 
-<!--    
-    <div class="institution-strip">
-        <img
-            class="institution-logo"
-            src="SCU_engineering.png" 
-            style="width: 10%; height: auto;"
-            alt="Santa Clara Engineering"
-        >
-    </div>
--->
     <footer>
         <div class="footer-inner">
             <p>&copy; 2026 Personalized gEnerative Tamagotchi (PET)</p>
