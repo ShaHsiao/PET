@@ -319,6 +319,21 @@
             font-weight: 800;
         }
 
+        .step-number {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            margin-bottom: 14px;
+            color: var(--text);
+            background: var(--accent);
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            box-shadow: 4px 4px 0 var(--border);
+            font-size: 1.15rem;
+            font-weight: 900;
+        }
+
         .publication {
             margin-bottom: 26px;
             padding: 26px;
@@ -336,6 +351,47 @@
         .publication p {
             margin: 0;
             color: var(--muted);
+        }
+
+        .publication .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .pub-link {
+            display: inline-block;
+            padding: 5px 12px;
+            color: var(--text);
+            background: var(--accent);
+            border: 2px solid var(--border);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .pub-link:hover,
+        .pub-link:focus {
+            background: var(--text);
+            color: #ffffff;
+        }
+
+        .pub-status {
+            display: inline-block;
+            padding: 5px 12px;
+            color: var(--muted);
+            border: 2px dashed var(--border);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            line-height: 1.5;
+            text-transform: uppercase;
         }
 
         .note-box {
@@ -441,6 +497,7 @@
         }
 
         .card:nth-child(2n) .tag,
+        .card:nth-child(2n) .step-number,
         .collaborator:nth-child(2n) .avatar {
             background: #ffc3d3;
         }
@@ -765,8 +822,8 @@
             <li><a href="#research-problems">Motivation</a></li>
             <li><a href="#research-issues">Research Questions</a></li>
             <li><a href="#publications">Publications</a></li>
-            <li><a href="#note">Notes</a></li>
-            <li><a href="#about">About</a></li>            
+            <li><a href="#note">What&rsquo;s Next</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -797,8 +854,33 @@
     </header>
 
     <main>
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p class="section-intro">
+                PET turns a goal you describe in your own words into a companion generated
+                for that goal, then keeps you company while you pursue it.
+            </p>
+            <div class="grid">
+                <article class="card">
+                    <div class="step-number" aria-hidden="true">1</div>
+                    <h3>Describe your goal</h3>
+                    <p>Tell PET what you want to work on, in plain language, and pick an art style. Any self-directed goal works &mdash; there is no fixed list of categories.</p>
+                </article>
+                <article class="card">
+                    <div class="step-number" aria-hidden="true">2</div>
+                    <h3>Meet your generated pet</h3>
+                    <p>Generation agents build a persona, a plan of concrete actions, and a one-of-a-kind animated companion from your goal and style choice.</p>
+                </article>
+                <article class="card">
+                    <div class="step-number" aria-hidden="true">3</div>
+                    <h3>Care for it daily</h3>
+                    <p>The CareTaker agent chats with you, logs what you did, and turns your progress into your pet&rsquo;s health, experience, and level.</p>
+                </article>
+            </div>
+        </section>
+
         <section id="research-problems">
-            <h2>Research Problems</h2>
+            <h2>Motivation</h2>
             <p class="section-intro">
                 PET studies how an AI pet can help people set meaningful goals,
                 stay motivated, and turn intentions into sustainable actions.
@@ -829,7 +911,7 @@
         </section>
 
         <section id="research-issues">
-            <h2>Research Issues</h2>
+            <h2>Research Questions</h2>
             <p class="section-intro">
                 PET investigates how a personalized AI companion affects goal
                 pursuit, daily engagement, and users' relationships with their pets.
@@ -863,13 +945,23 @@
             <p class="section-intro">Research papers, posters, demonstrations, and project reports related to PET.</p>
 
             <article class="publication">
-                <p>Sun, Q. &amp; Hsiao, I. H. (2026, Sept). <strong>Hyper-Personalized Virtual Companion: Generative Tamagotchi to Cultivate Personal Goals.</strong> In <em>Proceedings of the 37th ACM Conference on Hypertext and Social Media</em> (pp.46-50) doi: <a href="https://doi.org/10.1145/3800935.3830854">https://doi.org/10.1145/3800935.3830854</a></p>
+                <p>Sun, Q. &amp; Hsiao, I. H. (2026, Sept). <strong>Hyper-Personalized Virtual Companion: Generative Tamagotchi to Cultivate Personal Goals.</strong> In <em>Proceedings of the 37th ACM Conference on Hypertext and Social Media</em> (pp.&nbsp;46&ndash;50)</p>
+                <p class="pub-links">
+                    <a class="pub-link" href="https://doi.org/10.1145/3800935.3830854" target="_blank" rel="noopener noreferrer">DOI</a>
+                </p>
             </article>
             <article class="publication">
-                <p>Sun, Q., Chien, S-Y.  &amp; Hsiao, I. H. (2026, Nov). <strong>PET: A Personalized gEnerative Tamagotchi-Style Companion for Self-Directed Goal Support.</strong> In <em>Proceedings of the 14th International Conference on Human Agent Interaction</em> (pp.) (forthcoming) </p>
+                <p>Sun, Q., Chien, S-Y. &amp; Hsiao, I. H. (2026, Nov). <strong>PET: A Personalized gEnerative Tamagotchi-Style Companion for Self-Directed Goal Support.</strong> In <em>Proceedings of the 14th International Conference on Human Agent Interaction</em></p>
+                <p class="pub-links">
+                    <a class="pub-link" href="https://doi.org/10.1145/3841580.3841622" target="_blank" rel="noopener noreferrer">DOI</a>
+                    <span class="pub-status">Forthcoming</span>
+                </p>
             </article>
             <article class="publication">
-                <p>Sun, Q., Chien, S-Y., Chung, CF. &amp; Hsiao, I. H. (2027, Jan). <strong>A Pet for Every Goal: Personalized gEnerative Tamagotchi-Style Companions for Self-Directed Goal Support.</strong> In <em>Proceedings of the 60th Annual Hawaii International Conference on System Sciences, 2027</em> (pp.) (forthcoming)</p>
+                <p>Sun, Q., Chien, S-Y., Chung, CF. &amp; Hsiao, I. H. (2027, Jan). <strong>A Pet for Every Goal: Personalized gEnerative Tamagotchi-Style Companions for Self-Directed Goal Support.</strong> In <em>Proceedings of the 60th Annual Hawaii International Conference on System Sciences, 2027</em></p>
+                <p class="pub-links">
+                    <span class="pub-status">Forthcoming</span>
+                </p>
             </article>
             <figure class="section-figure architecture-figure">
                 <figcaption>PET system architecture<span class="figure-description">User goals and visual preferences guide companion generation; the CareTaker agent supports interaction, tracking, and conversation.</span></figcaption>
@@ -880,9 +972,9 @@
         </section>
 
         <section id="note">
-            <h2>Notes</h2>
+            <h2>What&rsquo;s Next</h2>
             <div class="note-box">
-                <h3>Researched Features</h3>
+                <h3>Research Directions</h3>
                 <ol class="feature-list">
                     <li>
                         <strong>Expanded social interaction:</strong>
